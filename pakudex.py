@@ -53,7 +53,7 @@ def List():
     obj = Pakuri.instances
     if obj:
         for num, ob in enumerate(obj):
-            print(num + ' ' + ob.name + '(' + ob.species + ', level ' + ')')
+            print(num + ' ' + ob.name + '(' + ob.species + ', level ' + ob.level + ')')
     else:
         print('\nNo Pakuri in Pakudex yet!\n')
 
