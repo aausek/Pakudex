@@ -58,7 +58,7 @@ def List():
         print('\nNo Pakuri in Pakudex yet!\n')
 
 
-def Add():
+# def Add():
     
 
 # def Show()
