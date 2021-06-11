@@ -56,7 +56,8 @@ def menuSelection(selection):
 # Print list of pakuri
 def printPk(pkList):
     print("\nPakuri in Pakudex:")
-    for count, pakuri in enumerate(pkList, 1):
+    newList = sorted(pkList, key=lambda x: x.name)
+    for count, pakuri in enumerate(newList, 1):
         print(f"{count}. {pakuri.name} ({pakuri.species}, level {pakuri.level})")
     print("")
 
@@ -117,7 +118,6 @@ def Add(pkList):
         levelInput = levelCheck('Level: ')
         pk = Pakuri(nameInput, speciesInput, levelInput)
         pkList.append(pk)
-        pkList.sort(key=lambda x: x.name, reverse=False)
         print(f'\nPakuri {pk.name} ({pk.species}, level {pk.level}) added!\n')
 
 # Menu option 4
