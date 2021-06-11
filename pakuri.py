@@ -28,6 +28,7 @@ class Pakuri:
         self.__hp = math.floor(self.__stamina * (level/6))
         self.__cp = math.floor(self.__attack * math.sqrt(self.__defense) * math.sqrt(self.__stamina) * level * 0.08)
     
+    # Properties of constructor
     @property
     def name(self):
         return self.__name

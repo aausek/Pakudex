@@ -2,11 +2,12 @@
 from pakuri import Pakuri
 import os
 
-
+# main()
 def main():
     print("Welcome to Pakudex: Let's Go!\n")
     printMenu()
 
+# Print menu options
 def printMenu():
     print('Pakudex Main Menu')
     print('-----------------')
@@ -17,10 +18,11 @@ def printMenu():
     print('5. Change Pakuri Level')
     print('6. Exit')
     
-    selection = input('What would you like to do? ')
+    # Get user menu selection
+    selection = input('\nWhat would you like to do? ')
     menuSelection(selection)
 
-
+# Based on selection call functions
 def menuSelection(selection):
     pkList = Pakuri.pkList
     # If 1 list pakuri
@@ -51,18 +53,21 @@ def menuSelection(selection):
         print('\nUnrecognized menu selection!\n')
         printMenu()
 
+# Print list of pakuri
 def printPk(pkList):
     print("\nPakuri in Pakudex:")
     for count, pakuri in enumerate(pkList, 1):
         print(f"{count}. {pakuri.name} ({pakuri.species}, level {pakuri.level})")
     print("")
 
+# Check if pakuri name already exists in list
 def nameCheck(nameInput, pkList):
     for pk, pakuri in enumerate(pkList):
         if nameInput == pakuri.name:
             return pakuri, pk
     return False, False
 
+# Validate level entered
 def levelCheck(inputMsg):
     temp = None
     xLevel = True
@@ -80,12 +85,14 @@ def levelCheck(inputMsg):
             print('Invalid level!')
     return temp
 
+# Menu option 1
 def List(pkList):
     if pkList:
         printPk(pkList)
     else:
         print('\nNo Pakuri in Pakudex yet!\n')
 
+# Menu option 2
 def Show(pkList):
     nameInput = input('\nEnter the name of the Pakuri to display: ')
     pk, pakuri = nameCheck(nameInput, pkList)
@@ -98,7 +105,7 @@ def Show(pkList):
     else:
         print('Error: No such Pakuri!\n')
 
-
+# Menu option 3
 def Add(pkList):
     print('\nPakuri Information\n\
 ------------------')
@@ -113,6 +120,7 @@ def Add(pkList):
         pkList.sort(key=lambda x: x.name, reverse=False)
         print(f'\nPakuri {pk.name} ({pk.species}, level {pk.level}) added!\n')
 
+# Menu option 4
 def Remove(pkList):
     nameInput = input('\nEnter the name of the Pakuri to remove: ')
     pk, pakuri = nameCheck(nameInput, pkList)
@@ -122,6 +130,7 @@ def Remove(pkList):
     else:
         print('Error: No such Pakuri!\n')    
 
+# Menu option 5
 def changeLevel(pkList):
     nameInput = input('\nEnter the name of the Pakuri to change: ')
     pk, pakuri = nameCheck(nameInput, pkList)
